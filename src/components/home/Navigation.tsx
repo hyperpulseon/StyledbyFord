@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../../ThemeContext';
+import { Button } from "@/components/ui/button";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,12 +26,6 @@ export default function Navigation() {
 
   const scrollToSection = (href: string) => {
     setIsMobileMenuOpen(false);
-    // Set global flag to prevent scroll-spy animations during navigation
-    (window as any).__isScrollingToSection = true;
-    setTimeout(() => {
-      (window as any).__isScrollingToSection = false;
-    }, 1000);
-
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -50,8 +44,6 @@ export default function Navigation() {
           href="#"
           onClick={(e) => {
             e.preventDefault();
-            (window as any).__isScrollingToSection = true;
-            setTimeout(() => { (window as any).__isScrollingToSection = false; }, 1000);
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
           className="text-2xl md:text-3xl font-bold tracking-tighter uppercase z-50 relative text-black dark:text-white transition-colors"
@@ -74,33 +66,38 @@ export default function Navigation() {
             ))}
           </div>
 
-          <button
+          <Button
+            variant="ghost"
+            size="icon"
             onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors text-black dark:text-white"
+            className="rounded-full"
           >
             {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
-          </button>
+          </Button>
         </div>
 
         {/* Mobile Menu Toggle */}
         <div className="flex items-center gap-4 md:hidden z-50">
-          <button
+          <Button
+            variant="ghost"
+            size="icon"
             onClick={toggleTheme}
-            className="p-2 rounded-full text-black dark:text-white"
+            className="rounded-full"
           >
             {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-          </button>
-          <button
-            className="text-black dark:text-white"
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X /> : <Menu />}
-          </button>
+          </Button>
         </div>
 
         {/* Mobile Nav Overlay */}
         <AnimatePresence>
-          {isMobileMenuOpen && createPortal(
+          {isMobileMenuOpen && (
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -116,8 +113,7 @@ export default function Navigation() {
                   {link.name}
                 </button>
               ))}
-            </motion.div>,
-            document.body
+            </motion.div>
           )}
         </AnimatePresence>
       </div>
