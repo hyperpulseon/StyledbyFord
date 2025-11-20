@@ -1,0 +1,39 @@
+{
+  "name": "ContactRequest",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the potential client"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Email address"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Phone number"
+    },
+    "need_description": {
+      "type": "string",
+      "description": "Description of their styling need"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "contacted",
+        "booked",
+        "archived"
+      ],
+      "default": "new",
+      "description": "Status of the inquiry"
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "need_description"
+  ]
+}
