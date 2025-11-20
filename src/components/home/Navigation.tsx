@@ -83,7 +83,7 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <div className="flex items-center gap-4 md:hidden z-50">
+        <div className="flex items-center gap-4 md:hidden z-[110] relative">
           <button
             onClick={toggleTheme}
             className="p-2 rounded-full text-black dark:text-white"
@@ -102,10 +102,11 @@ export default function Navigation() {
         <AnimatePresence>
           {isMobileMenuOpen && createPortal(
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="fixed inset-0 bg-white dark:bg-black z-40 flex flex-col items-center justify-center space-y-8 text-black dark:text-white"
+              initial={{ opacity: 0, y: -20, filter: "blur(4px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
+              transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+              className="fixed inset-0 bg-white dark:bg-black z-[100] flex flex-col items-center justify-center space-y-8 text-black dark:text-white"
             >
               {navLinks.map((link) => (
                 <button

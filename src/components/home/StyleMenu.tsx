@@ -71,7 +71,11 @@ export default function StyleMenu() {
                     setActiveService(service.id);
                   }
                 }}
-                viewport={{ margin: "-10% 0px -20% 0px" }}
+                viewport={{
+                  margin: typeof window !== 'undefined' && window.innerWidth < 768
+                    ? "0px 0px -40% 0px"
+                    : "-10% 0px -20% 0px"
+                }}
                 onClick={() => setActiveService(activeService === service.id ? null : service.id)}
                 className="w-full py-8 flex flex-col md:flex-row justify-between items-start md:items-center text-left group"
               >
@@ -93,9 +97,9 @@ export default function StyleMenu() {
               <AnimatePresence>
                 {activeService === service.id && (
                   <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
+                    initial={{ height: 0, opacity: 0, filter: "blur(4px)" }}
+                    animate={{ height: "auto", opacity: 1, filter: "blur(0px)" }}
+                    exit={{ height: 0, opacity: 0, filter: "blur(4px)" }}
                     transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
                     className="overflow-hidden"
                   >
