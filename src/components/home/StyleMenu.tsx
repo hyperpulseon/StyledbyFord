@@ -71,7 +71,7 @@ export default function StyleMenu() {
                     setActiveService(service.id);
                   }
                 }}
-                viewport={{ margin: "-20% 0px -60% 0px" }}
+                viewport={{ margin: "-10% 0px -20% 0px" }}
                 onClick={() => setActiveService(activeService === service.id ? null : service.id)}
                 className="w-full py-8 flex flex-col md:flex-row justify-between items-start md:items-center text-left group"
               >
@@ -96,7 +96,7 @@ export default function StyleMenu() {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
                     className="overflow-hidden"
                   >
                     <div className="grid md:grid-cols-2 gap-12 pb-12 pt-4">
