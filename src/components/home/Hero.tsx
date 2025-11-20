@@ -63,14 +63,14 @@ export default function Hero() {
             <img
               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"
               alt="Henry self-filming intro"
-              className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 grayscale"
+              className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 grayscale pointer-events-none"
             />
-            <div className="absolute inset-0 flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="w-16 h-16 rounded-full border border-white/50 dark:border-white/30 flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform duration-300">
                 <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[16px] border-l-white border-b-[10px] border-b-transparent ml-1"></div>
               </div>
             </div>
-            <span className="absolute bottom-4 left-0 right-0 text-center text-xs tracking-widest uppercase text-white dark:text-neutral-400 drop-shadow-md">Watch Intro</span>
+            <span className="absolute bottom-4 left-0 right-0 text-center text-xs tracking-widest uppercase text-white dark:text-neutral-400 drop-shadow-md pointer-events-none">Watch Intro</span>
           </div>
         </motion.div>
       </div>
@@ -103,8 +103,8 @@ export default function Hero() {
               transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
               onClick={(e) => e.stopPropagation()}
               className={`relative w-full bg-black rounded-lg overflow-hidden shadow-2xl ${isMobile
-                  ? 'max-w-sm aspect-[9/16]'
-                  : 'max-w-5xl aspect-video'
+                ? 'max-w-sm aspect-[9/16]'
+                : 'max-w-5xl aspect-video'
                 }`}
             >
               {/* Close Button */}
