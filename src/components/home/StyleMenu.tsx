@@ -66,7 +66,11 @@ export default function StyleMenu() {
               className="border-b border-neutral-200 dark:border-neutral-900 last:border-0"
             >
               <motion.button
-                onViewportEnter={() => setActiveService(service.id)}
+                onViewportEnter={() => {
+                  if (!(window as any).__isScrollingToSection) {
+                    setActiveService(service.id);
+                  }
+                }}
                 viewport={{ margin: "-20% 0px -60% 0px" }}
                 onClick={() => setActiveService(activeService === service.id ? null : service.id)}
                 className="w-full py-8 flex flex-col md:flex-row justify-between items-start md:items-center text-left group"
