@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function Process() {
@@ -6,7 +5,7 @@ export default function Process() {
     <section id="process" className="py-24 md:py-32 border-t border-neutral-200 dark:border-neutral-900 transition-colors duration-500">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          
+
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -18,7 +17,7 @@ export default function Process() {
             <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-8 uppercase text-black dark:text-white">
               The <span className="font-bold">Process</span>
             </h2>
-            
+
             <div className="space-y-8">
               <div>
                 <h3 className="text-xl font-normal mb-4 tracking-wide text-black dark:text-white">The Vibe Check</h3>
@@ -38,8 +37,8 @@ export default function Process() {
             className="order-1 md:order-2 h-[500px] bg-neutral-100 dark:bg-neutral-900 relative overflow-hidden group transition-colors"
           >
             {/* Upscale Hotel Lobby / Business Call Vibe */}
-            <img 
-              src="https://images.unsplash.com/photo-1551632436-cbf8dd354ca8?q=80&w=2069&auto=format&fit=crop" 
+            <img
+              src="https://images.unsplash.com/photo-1551632436-cbf8dd354ca8?q=80&w=2069&auto=format&fit=crop"
               alt="Consultation Call"
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
             />

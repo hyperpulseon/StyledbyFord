@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { base44 } from '@/api/base44Client';
 import { Loader2, Instagram, Facebook, Mail } from 'lucide-react';
@@ -12,9 +12,9 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError(null);
@@ -37,7 +37,7 @@ export default function Contact() {
     <section id="contact" className="py-24 md:py-32 bg-neutral-50 dark:bg-neutral-950 border-t border-neutral-200 dark:border-neutral-900 transition-colors duration-500">
       <div className="container mx-auto px-6 md:px-12 max-w-5xl">
         <div className="grid md:grid-cols-2 gap-16">
-          
+
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -89,7 +89,7 @@ export default function Contact() {
                     type="text"
                     required
                     value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-3 text-black dark:text-white focus:border-black dark:focus:border-white focus:outline-none transition-colors"
                   />
                 </div>
@@ -99,7 +99,7 @@ export default function Contact() {
                     type="email"
                     required
                     value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-3 text-black dark:text-white focus:border-black dark:focus:border-white focus:outline-none transition-colors"
                   />
                 </div>
@@ -108,7 +108,7 @@ export default function Contact() {
                   <input
                     type="tel"
                     value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-3 text-black dark:text-white focus:border-black dark:focus:border-white focus:outline-none transition-colors"
                   />
                 </div>
@@ -118,11 +118,11 @@ export default function Contact() {
                     required
                     rows={4}
                     value={formData.need_description}
-                    onChange={(e) => setFormData({...formData, need_description: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, need_description: e.target.value })}
                     className="w-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-3 text-black dark:text-white focus:border-black dark:focus:border-white focus:outline-none transition-colors resize-none"
                   ></textarea>
                 </div>
-                
+
                 {error && <p className="text-red-500 text-sm">{error}</p>}
 
                 <button
@@ -142,7 +142,7 @@ export default function Contact() {
   );
 }
 
-function Check(props) {
+function Check(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

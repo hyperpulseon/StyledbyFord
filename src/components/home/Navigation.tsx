@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon } from 'lucide-react';
-import { useTheme } from '../ThemeContext';
+import { useTheme } from '../../ThemeContext';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,7 +23,7 @@ export default function Navigation() {
     { name: "Contact", href: "#contact" },
   ];
 
-  const scrollToSection = (href) => {
+  const scrollToSection = (href: string) => {
     setIsMobileMenuOpen(false);
     const element = document.querySelector(href);
     if (element) {
@@ -32,16 +32,15 @@ export default function Navigation() {
   };
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out border-b ${
-        isScrolled 
-          ? 'bg-white/90 dark:bg-black/90 backdrop-blur-md border-neutral-200 dark:border-neutral-900 py-4 shadow-sm dark:shadow-none' 
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out border-b ${isScrolled
+          ? 'bg-white/90 dark:bg-black/90 backdrop-blur-md border-neutral-200 dark:border-neutral-900 py-4 shadow-sm dark:shadow-none'
           : 'bg-transparent border-transparent py-6'
-      }`}
+        }`}
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        <a 
-          href="#" 
+        <a
+          href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           className="text-2xl md:text-3xl font-bold tracking-tighter uppercase z-50 relative text-black dark:text-white transition-colors"
         >
@@ -62,8 +61,8 @@ export default function Navigation() {
               </button>
             ))}
           </div>
-          
-          <button 
+
+          <button
             onClick={toggleTheme}
             className="p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors text-black dark:text-white"
           >
@@ -73,13 +72,13 @@ export default function Navigation() {
 
         {/* Mobile Menu Toggle */}
         <div className="flex items-center gap-4 md:hidden z-50">
-          <button 
+          <button
             onClick={toggleTheme}
             className="p-2 rounded-full text-black dark:text-white"
           >
             {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
           </button>
-          <button 
+          <button
             className="text-black dark:text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >

@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
@@ -88,7 +87,7 @@ export default function Investment() {
           <h3 className="text-xl font-light uppercase tracking-widest text-center mb-12 border-b border-neutral-200 dark:border-neutral-900 pb-4 inline-block mx-auto w-full text-black dark:text-white">Style Elevation Packages</h3>
           <div className="grid lg:grid-cols-3 gap-8">
             {elevationPackages.map((pkg, index) => (
-              <motion.div 
+              <motion.div
                 key={pkg.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +117,7 @@ export default function Investment() {
         {/* Other Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
           {pricingItems.map((item, index) => (
-            <motion.div 
+            <motion.div
               key={item.title}
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -135,8 +134,8 @@ export default function Investment() {
               <ul className="mt-6 space-y-2">
                 {item.details.map((detail, i) => (
                   <li key={i} className="text-sm text-neutral-600 dark:text-neutral-400 font-light flex items-center gap-2">
-                     <div className="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 rounded-full"></div>
-                     {detail}
+                    <div className="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 rounded-full"></div>
+                    {detail}
                   </li>
                 ))}
               </ul>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
@@ -41,12 +41,12 @@ const services = [
 ];
 
 export default function StyleMenu() {
-  const [activeService, setActiveService] = useState(null);
+  const [activeService, setActiveService] = useState<number | null>(null);
 
   return (
     <section id="style-menu" className="py-24 md:py-32 bg-neutral-50 dark:bg-neutral-950 transition-colors duration-500">
       <div className="container mx-auto px-6 md:px-12">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -57,7 +57,7 @@ export default function StyleMenu() {
 
         <div className="space-y-4">
           {services.map((service) => (
-            <motion.div 
+            <motion.div
               key={service.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -79,8 +79,8 @@ export default function StyleMenu() {
                   <p className="text-sm text-neutral-500 mt-2 tracking-wider uppercase">{service.subtitle}</p>
                 </div>
                 <div className="mt-4 md:mt-0">
-                  {activeService === service.id ? 
-                    <Minus className="w-6 h-6 text-black dark:text-white" /> : 
+                  {activeService === service.id ?
+                    <Minus className="w-6 h-6 text-black dark:text-white" /> :
                     <Plus className="w-6 h-6 text-neutral-400 dark:text-neutral-600 group-hover:text-black dark:group-hover:text-white transition-colors" />
                   }
                 </div>
@@ -101,14 +101,14 @@ export default function StyleMenu() {
                           {service.description}
                         </p>
                         <div className="mt-8">
-                           <a href="#contact" className="inline-block border border-black dark:border-white px-8 py-3 text-xs tracking-[0.2em] uppercase hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-300 text-black dark:text-white">
-                             Inquire Now
-                           </a>
+                          <a href="#contact" className="inline-block border border-black dark:border-white px-8 py-3 text-xs tracking-[0.2em] uppercase hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-300 text-black dark:text-white">
+                            Inquire Now
+                          </a>
                         </div>
                       </div>
                       <div className="h-64 md:h-80 w-full overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
-                        <img 
-                          src={service.image} 
+                        <img
+                          src={service.image}
                           alt={service.title}
                           className="w-full h-full object-cover"
                         />

@@ -1,4 +1,3 @@
-import React from 'react';
 import Layout from '../Layout';
 import Navigation from '../components/home/Navigation';
 import Hero from '../components/home/Hero';
