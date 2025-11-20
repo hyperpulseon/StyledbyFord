@@ -56,13 +56,13 @@ export default function StyleMenu() {
         </motion.h2>
 
         <div className="space-y-4">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <motion.div
               key={service.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="border-b border-neutral-200 dark:border-neutral-900 last:border-0"
             >
               <motion.button
@@ -100,7 +100,11 @@ export default function StyleMenu() {
                     initial={{ height: 0, opacity: 0, filter: "blur(4px)" }}
                     animate={{ height: "auto", opacity: 1, filter: "blur(0px)" }}
                     exit={{ height: 0, opacity: 0, filter: "blur(4px)" }}
-                    transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
+                    transition={{
+                      duration: 0.5,
+                      ease: [0.04, 0.62, 0.23, 0.98],
+                      delay: index * 0.05
+                    }}
                     className="overflow-hidden"
                   >
                     <div className="grid md:grid-cols-2 gap-12 pb-12 pt-4">
