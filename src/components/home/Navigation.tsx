@@ -83,7 +83,7 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <div className="flex items-center gap-4 md:hidden z-[110] relative">
+        <div className="flex items-center gap-4 md:hidden z-50">
           <button
             onClick={toggleTheme}
             className="p-2 rounded-full text-black dark:text-white"
@@ -102,24 +102,20 @@ export default function Navigation() {
         <AnimatePresence>
           {isMobileMenuOpen && createPortal(
             <motion.div
-              initial={{ opacity: 0, y: -20, filter: "blur(4px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
-              transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-white dark:bg-black z-[100] flex flex-col items-center justify-center space-y-8 text-black dark:text-white"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="fixed inset-0 bg-white dark:bg-black z-40 flex flex-col items-center justify-center space-y-8 text-black dark:text-white"
             >
-              <div onClick={(e) => e.stopPropagation()} className="flex flex-col items-center space-y-8">
-                {navLinks.map((link) => (
-                  <button
-                    key={link.name}
-                    onClick={() => scrollToSection(link.href)}
-                    className="text-xl font-light tracking-[0.2em] uppercase hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors"
-                  >
-                    {link.name}
-                  </button>
-                ))}
-              </div>
+              {navLinks.map((link) => (
+                <button
+                  key={link.name}
+                  onClick={() => scrollToSection(link.href)}
+                  className="text-xl font-light tracking-[0.2em] uppercase hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors"
+                >
+                  {link.name}
+                </button>
+              ))}
             </motion.div>,
             document.body
           )}
