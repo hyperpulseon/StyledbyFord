@@ -21,11 +21,11 @@ export function VideoSection() {
   const videoId = "98B9qZzM9uM"
 
   return (
-    <div className="w-full max-w-(--breakpoint-xl) mx-auto aspect-video bg-accent rounded-xl">
+    <div className="w-full max-w-6xl mx-auto" ref={containerRef}>
       <FadeIn>
         <motion.div
           style={{ scale, opacity }}
-          className="relative aspect-video w-full overflow-hidden bg-neutral-900 shadow-2xl shadow-white/5"
+          className="relative aspect-video w-full overflow-hidden bg-neutral-900 shadow-2xl shadow-white/5 rounded-xl"
         >
           <AnimatePresence mode="wait">
             {!isPlaying ? (
