@@ -178,7 +178,7 @@ export function VideoSection() {
             </motion.div>
           )}
         </AnimatePresence>
-      </motion.div>
+      </div>
     </div>
   )
 }
