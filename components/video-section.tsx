@@ -120,7 +120,7 @@ export function VideoSection() {
                 <div className="relative h-full w-full">
                   <video
                     ref={videoRef}
-                    src="/introvideo.mp4"
+                    src="/intro-video.mp4"
                     autoPlay
                     loop
                     muted={isMuted}
