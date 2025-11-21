@@ -107,6 +107,7 @@ export function VideoSection() {
                   <video
                     ref={videoRef}
                     src="/introvideo.mp4"
+                    autoPlay
                     loop
                     muted={isMuted}
                     playsInline
