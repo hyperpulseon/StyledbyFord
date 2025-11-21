@@ -73,7 +73,7 @@ export function Hero() {
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 1, delay: 0.6 }}
-        className="w-full"
+        className="w-full container mx-auto"
       >
         <VideoSection />
       </motion.div>
