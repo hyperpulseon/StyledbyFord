@@ -4,6 +4,13 @@ import { useState } from "react"
 import { motion, useScroll, useMotionValueEvent } from "framer-motion"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu"
 
 const navItems = [
   { name: "The Process", href: "#process" },
@@ -23,9 +30,8 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${
-        isScrolled ? "bg-black/80 backdrop-blur-md border-b border-white/10" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${isScrolled ? "bg-black/80 backdrop-blur-md border-b border-white/10" : "bg-transparent"
+        }`}
     >
       <div className="container mx-auto px-6 py-6 flex items-center justify-between">
         <Link href="/" className="text-2xl font-serif tracking-wider z-50 relative">
@@ -33,18 +39,27 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm uppercase tracking-widest text-white/70 hover:text-white transition-colors relative group"
-            >
-              {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full" />
-            </Link>
-          ))}
-        </nav>
+        <div className="hidden md:flex">
+          <NavigationMenu>
+            <NavigationMenuList className="gap-8">
+              {navItems.map((item) => (
+                <NavigationMenuItem key={item.name}>
+                  <Link href={item.href} legacyBehavior passHref>
+                    <NavigationMenuLink
+                      className={navigationMenuTriggerStyle({
+                        className:
+                          "bg-transparent text-sm uppercase tracking-widest text-white/70 hover:text-white hover:bg-transparent focus:bg-transparent focus:text-white data-[active]:bg-transparent data-[state=open]:bg-transparent transition-colors relative group h-auto p-0",
+                      })}
+                    >
+                      {item.name}
+                      <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full" />
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
 
         {/* Mobile Menu Button */}
         <button className="md:hidden z-50 text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
