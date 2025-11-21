@@ -61,11 +61,11 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="mt-10 flex items-center justify-center gap-4"
         >
-          <Button size="lg" className="px-12 py-4 bg-white text-black hover:bg-gray-200 transition-all duration-300 uppercase tracking-widest text-sm" asChild>
-            <Link href="#process">
+          <Link href="#process">
+            <button className="px-12 py-4 bg-white text-black hover:bg-gray-200 transition-all duration-300 uppercase tracking-widest text-sm">
               Get Started
-            </Link>
-          </Button>
+            </button>
+          </Link>
         </motion.div>
       </div>
       <motion.div
