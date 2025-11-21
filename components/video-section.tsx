@@ -24,7 +24,7 @@ export function VideoSection() {
   }, [])
 
   // Placeholder YouTube Video ID
-  const videoId = "98B9qZzM9uM"
+  const videoId = "GsyTVrbgfYI"
 
   const handlePlayPause = () => {
     if (videoRef.current) {
@@ -52,10 +52,7 @@ export function VideoSection() {
 
   return (
     <div className="w-full">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+      <div
         className={`relative w-full min-h-[300px] overflow-hidden bg-gradient-to-br from-neutral-900 to-neutral-800 shadow-2xl shadow-white/5 rounded-xl ${isMobile ? 'aspect-square max-w-md mx-auto' : 'aspect-video'
           }`}
       >
