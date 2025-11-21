@@ -1,84 +1,54 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { ArrowDown } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { ArrowUpRight, ArrowRight } from "lucide-react"
 import Link from "next/link"
-import { CornerCross, DecorativeLine } from "@/components/ui/decorative"
 
 export function Hero() {
   return (
-    <section className="relative h-screen w-full overflow-hidden flex items-center border-b border-white/5">
-      {/* Decorative Elements */}
-      <CornerCross className="top-8 left-8 md:top-12 md:left-12" />
-      <CornerCross className="top-8 right-8 md:top-12 md:right-12" />
-      <CornerCross className="bottom-8 left-8 md:bottom-12 md:left-12" />
-      <CornerCross className="bottom-8 right-8 md:bottom-12 md:right-12" />
-
-      <DecorativeLine className="top-24 left-0 opacity-30" />
-      <DecorativeLine className="bottom-24 right-0 opacity-30" />
-      <DecorativeLine vertical className="left-24 top-0 opacity-20 hidden md:block" />
-
-      {/* Video Background Placeholder */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/40 z-10" />
-        {/* In a real app, this would be a <video> tag */}
-        <img src="/luxury-runway-dark.png" alt="Fashion Background" className="w-full h-full object-cover opacity-60" />
-      </div>
-
-      <div className="container mx-auto px-6 relative z-20 grid md:grid-cols-2 gap-12 items-center">
-        <div className="space-y-8">
-          <motion.h1
-            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="text-6xl md:text-8xl font-serif leading-tight text-shimmer"
-          >
-            StyledbyFORD
-          </motion.h1>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="space-y-4"
-          >
-            <h2 className="text-3xl md:text-4xl font-serif italic text-gray-300">My eye for style</h2>
-            <p className="text-lg md:text-xl text-gray-400 max-w-md font-light leading-relaxed">
-              Elevating your personal brand through curated wardrobe styling and luxury consultation.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-6 pt-4"
-          >
-            <Link
-              href="#process"
-              className="px-8 py-4 border border-white/30 hover:bg-white hover:text-black transition-all duration-500 uppercase tracking-widest text-sm text-center relative overflow-hidden group"
-            >
-              <span className="relative z-10">Explore the Process</span>
-              <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+    <div className="min-h-screen w-full flex flex-col gap-16 items-center justify-center px-6 py-16 pt-32">
+      <div className="text-center max-w-3xl">
+        <Badge
+          variant="secondary"
+          className="rounded-full py-1 border-white/20 bg-white/10 text-white hover:bg-white/20"
+          asChild
+        >
+          <Link href="#contact">
+            Accepting New Clients <ArrowUpRight className="ml-1 size-4" />
+          </Link>
+        </Badge>
+        <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl md:leading-[1.2] font-serif font-semibold tracking-tighter text-white">
+          StyledbyFORD
+        </h1>
+        <p className="mt-6 md:text-lg text-white/80">
+          Elevating your personal brand through curated wardrobe styling and luxury consultation.
+        </p>
+        <div className="mt-10 flex items-center justify-center gap-4">
+          <Button size="lg" className="rounded-full text-base bg-white text-black hover:bg-gray-200" asChild>
+            <Link href="#process">
+              Explore the Process <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
-            <Link
-              href="#contact"
-              className="px-8 py-4 bg-white text-black hover:bg-gray-200 transition-all duration-300 uppercase tracking-widest text-sm text-center border-shimmer"
-            >
+          </Button>
+          <Button
+            variant="outline"
+            size="lg"
+            className="rounded-full text-base shadow-none border-white/30 text-white hover:bg-white/10 hover:text-white"
+            asChild
+          >
+            <Link href="#contact">
               Book the Vibe Check
             </Link>
-          </motion.div>
+          </Button>
         </div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
-      >
-        <ArrowDown className="w-6 h-6 text-white/50 animate-bounce" />
-      </motion.div>
-    </section>
+      <div className="w-full max-w-6xl mx-auto aspect-video bg-black/50 rounded-xl overflow-hidden relative border border-white/10">
+        <img
+          src="/luxury-runway-dark.png"
+          alt="Fashion Runway"
+          className="w-full h-full object-cover opacity-80"
+        />
+      </div>
+    </div>
   )
 }
