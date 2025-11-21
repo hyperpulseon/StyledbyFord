@@ -4,7 +4,7 @@ import { Playfair_Display, Inter } from "next/font/google"
 import "./globals.css"
 import { NoiseOverlay } from "@/components/ui/noise-overlay"
 import { CustomCursor } from "@/components/ui/custom-cursor"
-import { Preloader } from "@/components/ui/preloader"
+
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider"
 
 const playfair = Playfair_Display({
@@ -34,7 +34,7 @@ export default function RootLayout({
         className={`${playfair.variable} ${inter.variable} font-sans bg-black text-white antialiased selection:bg-white/20 selection:text-white`}
       >
         <SmoothScrollProvider>
-          <Preloader />
+
           <CustomCursor />
           <NoiseOverlay />
           {children}
