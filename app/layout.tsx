@@ -1,15 +1,10 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Playfair_Display, Inter } from "next/font/google"
+import { Inter } from "next/font/google"
 import "./globals.css"
 import { NoiseOverlay } from "@/components/ui/noise-overlay"
 import { CustomCursor } from "@/components/ui/custom-cursor"
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider"
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-serif",
-})
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable} ${inter.variable} font-sans bg-black text-white antialiased selection:bg-white/20 selection:text-white`}
+        className={`${inter.variable} font-sans bg-black text-white antialiased selection:bg-white/20 selection:text-white`}
       >
         <SmoothScrollProvider>
           <NoiseOverlay />
