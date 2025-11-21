@@ -23,7 +23,7 @@ export function FadeIn({ children, delay = 0, className = "", direction = "up" }
     <motion.div
       initial={{ opacity: 0, filter: "blur(8px)", ...directions[direction] }}
       whileInView={{ opacity: 1, x: 0, y: 0, filter: "blur(0px)" }}
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: false, margin: "-100px" }}
       transition={{ duration: 1.0, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
       className={className}
     >

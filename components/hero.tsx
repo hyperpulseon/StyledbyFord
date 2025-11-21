@@ -13,7 +13,8 @@ export function Hero() {
       <div className="text-center max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.1 }}
         >
           <Badge
@@ -28,7 +29,8 @@ export function Hero() {
         </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl md:leading-[1.2] font-semibold tracking-tighter text-white"
         >
@@ -36,7 +38,8 @@ export function Hero() {
         </motion.h1>
         <motion.h2
           initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mt-4 text-2xl md:text-3xl font-serif italic text-white/90"
         >
@@ -44,7 +47,8 @@ export function Hero() {
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-6 md:text-lg text-white/80"
         >
@@ -52,7 +56,8 @@ export function Hero() {
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           className="mt-10 flex items-center justify-center gap-4"
         >
@@ -61,21 +66,12 @@ export function Hero() {
               Get Started <ArrowUpRight className="h-5! w-5!" />
             </Link>
           </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="rounded-full text-base shadow-none bg-white text-black hover:bg-gray-100 border-white"
-            asChild
-          >
-            <Link href="#contact">
-              <CirclePlay className="h-5! w-5! text-black" /> Watch Demo
-            </Link>
-          </Button>
         </motion.div>
       </div>
       <motion.div
         initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 1, delay: 0.6 }}
       >
         <VideoSection />
