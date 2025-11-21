@@ -1,16 +1,17 @@
 "use client"
 
 import { useState } from "react"
-import { motion, useScroll, useMotionValueEvent } from "framer-motion"
+import { useScroll, useMotionValueEvent } from "framer-motion"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Menu } from "lucide-react"
 import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+  SheetTitle,
+  SheetDescription,
+} from "@/components/ui/sheet"
 
 const navItems = [
   { name: "The Process", href: "#process" },
@@ -21,7 +22,6 @@ const navItems = [
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { scrollY } = useScroll()
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -39,53 +39,47 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex">
-          <NavigationMenu>
-            <NavigationMenuList className="gap-8">
-              {navItems.map((item) => (
-                <NavigationMenuItem key={item.name}>
-                  <Link href={item.href} legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className={navigationMenuTriggerStyle({
-                        className:
-                          "bg-transparent text-sm uppercase tracking-widest text-white/70 hover:text-white hover:bg-transparent focus:bg-transparent focus:text-white data-[active]:bg-transparent data-[state=open]:bg-transparent transition-colors relative group h-auto p-0",
-                      })}
+        <nav className="hidden md:flex items-center gap-8">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-sm uppercase tracking-widest text-white/70 hover:text-white transition-colors relative group"
+            >
+              {item.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full" />
+            </Link>
+          ))}
+        </nav>
+
+        {/* Mobile Menu */}
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <button className="z-50 text-white">
+                <Menu />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="left" className="bg-black border-r border-white/10 w-full max-w-[300px]">
+              <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+              <SheetDescription className="sr-only">
+                Navigation links for mobile devices
+              </SheetDescription>
+              <div className="flex flex-col items-center justify-center h-full gap-8">
+                {navItems.map((item) => (
+                  <SheetClose key={item.name} asChild>
+                    <Link
+                      href={item.href}
+                      className="text-2xl font-serif text-white hover:text-gray-300 transition-colors"
                     >
                       {item.name}
-                      <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full" />
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-              ))}
-            </NavigationMenuList>
-          </NavigationMenu>
+                    </Link>
+                  </SheetClose>
+                ))}
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
-
-        {/* Mobile Menu Button */}
-        <button className="md:hidden z-50 text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          {isMobileMenuOpen ? <X /> : <Menu />}
-        </button>
-
-        {/* Mobile Nav Overlay */}
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black z-40 flex flex-col items-center justify-center gap-8"
-          >
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-2xl font-serif text-white hover:text-gray-300 transition-colors"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </motion.div>
-        )}
       </div>
     </header>
   )
