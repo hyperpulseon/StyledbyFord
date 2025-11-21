@@ -2,53 +2,50 @@
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ArrowUpRight, ArrowRight } from "lucide-react"
+import { ArrowUpRight, CirclePlay } from "lucide-react"
 import Link from "next/link"
 
 export function Hero() {
   return (
-    <div className="min-h-screen w-full flex flex-col gap-16 items-center justify-center px-6 py-16 pt-32">
+    <div className="min-h-screen w-full flex flex-col gap-16 items-center justify-center px-6 py-16">
       <div className="text-center max-w-3xl">
         <Badge
           variant="secondary"
-          className="rounded-full py-1 border-white/20 bg-white/10 text-white hover:bg-white/20"
+          className="rounded-full py-1 border-border"
           asChild
         >
           <Link href="#contact">
             Accepting New Clients <ArrowUpRight className="ml-1 size-4" />
           </Link>
         </Badge>
-        <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl md:leading-[1.2] font-serif font-semibold tracking-tighter text-white">
+        <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl md:leading-[1.2] font-semibold tracking-tighter">
           StyledbyFORD
         </h1>
-        <p className="mt-6 md:text-lg text-white/80">
-          Elevating your personal brand through curated wardrobe styling and luxury consultation.
+        <h2 className="mt-4 text-2xl md:text-3xl font-serif italic text-foreground/90">
+          My eye for style
+        </h2>
+        <p className="mt-6 md:text-lg text-foreground/80">
+          Style is not about what you wear - it is a statement. With my eye for detail and effortless style instinct, I create looks that are elevated, modern, and most importantly- impossible to overlook. I do not chase trends; I shape presence.
         </p>
         <div className="mt-10 flex items-center justify-center gap-4">
-          <Button size="lg" className="rounded-full text-base bg-white text-black hover:bg-gray-200" asChild>
+          <Button size="lg" className="rounded-full text-base" asChild>
             <Link href="#process">
-              Explore the Process <ArrowRight className="ml-2 h-5 w-5" />
+              Get Started <ArrowUpRight className="h-5! w-5!" />
             </Link>
           </Button>
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full text-base shadow-none border-white/30 text-white hover:bg-white/10 hover:text-white"
+            className="rounded-full text-base shadow-none"
             asChild
           >
             <Link href="#contact">
-              Book the Vibe Check
+              <CirclePlay className="h-5! w-5!" /> Watch Demo
             </Link>
           </Button>
         </div>
       </div>
-      <div className="w-full max-w-6xl mx-auto aspect-video bg-black/50 rounded-xl overflow-hidden relative border border-white/10">
-        <img
-          src="/luxury-runway-dark.png"
-          alt="Fashion Runway"
-          className="w-full h-full object-cover opacity-80"
-        />
-      </div>
+      <div className="w-full max-w-(--breakpoint-xl) mx-auto aspect-video bg-accent rounded-xl" />
     </div>
   )
 }
