@@ -61,9 +61,9 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="mt-10 flex items-center justify-center gap-4"
         >
-          <Button size="lg" className="rounded-full text-base" asChild>
+          <Button size="lg" className="px-12 py-4 bg-white text-black hover:bg-gray-200 transition-all duration-300 uppercase tracking-widest text-sm" asChild>
             <Link href="#process">
-              Get Started <ArrowUpRight className="h-5! w-5!" />
+              Get Started
             </Link>
           </Button>
         </motion.div>
