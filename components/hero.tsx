@@ -8,7 +8,7 @@ import { VideoSection } from "@/components/video-section"
 
 export function Hero() {
   return (
-    <div className="min-h-screen w-full flex flex-col gap-16 items-center justify-center px-6 py-16">
+    <div className="min-h-screen w-full flex flex-col gap-16 items-center justify-center px-6 py-34">
       <div className="text-center max-w-3xl">
         <Badge
           variant="secondary"
