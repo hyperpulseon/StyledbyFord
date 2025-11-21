@@ -51,12 +51,12 @@ export function VideoSection() {
   }
 
   return (
-    <div className="w-full px-6">
+    <div className="w-full">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className={`relative w-full overflow-hidden bg-gradient-to-br from-neutral-900 to-neutral-800 shadow-2xl shadow-white/5 rounded-xl ${isMobile ? 'aspect-square max-w-md mx-auto' : 'aspect-video'
+        className={`relative w-full min-h-[300px] overflow-hidden bg-gradient-to-br from-neutral-900 to-neutral-800 shadow-2xl shadow-white/5 rounded-xl ${isMobile ? 'aspect-square max-w-md mx-auto' : 'aspect-video'
           }`}
       >
         <AnimatePresence mode="wait">
