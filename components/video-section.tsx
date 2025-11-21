@@ -51,7 +51,7 @@ export function VideoSection() {
   }
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 md:px-0">
+    <div className="w-full px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
