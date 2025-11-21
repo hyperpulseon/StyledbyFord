@@ -3,24 +3,16 @@
 import { useState, useRef, useEffect } from "react"
 import { Play, Pause, Volume2, VolumeX, Maximize } from "lucide-react"
 import Image from "next/image"
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 export function VideoSection() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
   const [showControls, setShowControls] = useState(true)
-  const [isMuted, setIsMuted] = useState(true)
+  const [isMuted, setIsMuted] = useState(false)
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
   const containerRef = useRef(null)
-
-  // Scroll-based shine animation
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  })
-
-  const shineX = useTransform(scrollYProgress, [0, 0.5, 1], ["-200%", "0%", "200%"])
 
   // Detect mobile on mount
   useEffect(() => {
@@ -84,9 +76,12 @@ export function VideoSection() {
               />
               <div className="absolute inset-0 bg-black/20" />
 
-              {/* Scroll-based shine effect */}
+              {/* One-time shine effect */}
               <motion.div
-                style={{ x: shineX }}
+                initial={{ x: "-100%" }}
+                whileInView={{ x: "200%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.5, ease: "easeInOut", delay: 0.5 }}
                 className="absolute inset-0 w-full h-full pointer-events-none"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 blur-sm" />
