@@ -36,7 +36,7 @@ export function VideoSection() {
       <FadeIn>
         <motion.div
           style={{ scale, opacity }}
-          className="relative aspect-video w-full overflow-hidden bg-neutral-900 shadow-2xl shadow-white/5 rounded-xl"
+          className="relative aspect-video w-full min-h-[400px] overflow-hidden bg-gradient-to-br from-neutral-900 to-neutral-800 shadow-2xl shadow-white/5 rounded-xl"
         >
           <AnimatePresence mode="wait">
             {!isPlaying ? (
@@ -48,6 +48,7 @@ export function VideoSection() {
                 className="absolute inset-0 z-10 flex items-center justify-center group cursor-pointer"
                 onClick={() => setIsPlaying(true)}
               >
+                <div className="absolute inset-0 bg-gradient-to-br from-neutral-800 to-neutral-900" />
                 <Image
                   src="/fashion-photoshoot-styling-behind-scenes.jpg"
                   alt="Behind the scenes styling"
