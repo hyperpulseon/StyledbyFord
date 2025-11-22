@@ -54,7 +54,7 @@ export function VideoSection() {
   return (
     <div className="w-full" ref={containerRef}>
       <div
-        className={`relative w-full min-h-[300px] overflow-hidden bg-gradient-to-br from-neutral-900 to-neutral-800 shadow-2xl shadow-white/5 rounded-xl ${isMobile ? 'aspect-square max-w-md mx-auto' : 'aspect-video'
+        className={`relative w-full min-h-[300px] overflow-hidden bg-gradient-to-br from-muted to-background shadow-2xl shadow-foreground/5 rounded-xl ${isMobile ? 'aspect-square max-w-md mx-auto' : 'aspect-video'
           }`}
       >
         <AnimatePresence mode="wait">
@@ -67,14 +67,14 @@ export function VideoSection() {
               className="absolute inset-0 z-10 flex items-center justify-center group cursor-pointer"
               onClick={() => setIsPlaying(true)}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-neutral-800 to-neutral-900" />
+              <div className="absolute inset-0 bg-gradient-to-br from-background to-muted" />
               <Image
                 src="/fashion-photoshoot-styling-behind-scenes.jpg"
                 alt="Behind the scenes styling"
                 fill
                 className="object-cover opacity-60 transition-opacity duration-700 group-hover:opacity-40"
               />
-              <div className="absolute inset-0 bg-black/20" />
+              <div className="absolute inset-0 bg-background/20" />
 
               {/* One-time shine effect */}
               <motion.div
@@ -84,22 +84,22 @@ export function VideoSection() {
                 transition={{ duration: 1.5, ease: "easeInOut", delay: 0.5 }}
                 className="absolute inset-0 w-full h-full pointer-events-none"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 blur-sm" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-foreground/20 to-transparent skew-x-12 blur-sm" />
               </motion.div>
 
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="relative z-20 flex h-20 w-20 items-center justify-center rounded-full border border-white/30 bg-white/10 backdrop-blur-sm transition-colors duration-300 group-hover:bg-white/20 group-hover:border-white/50"
+                className="relative z-20 flex h-20 w-20 items-center justify-center rounded-full border border-foreground/30 bg-foreground/10 backdrop-blur-sm transition-colors duration-300 group-hover:bg-foreground/20 group-hover:border-foreground/50"
               >
-                <Play className="ml-1 h-8 w-8 text-white fill-white" />
+                <Play className="ml-1 h-8 w-8 text-foreground fill-foreground" />
               </motion.div>
 
               <div className="absolute bottom-8 left-8 z-20">
-                <p className="text-sm font-medium uppercase tracking-widest text-white/70 mb-2">
+                <p className="text-sm font-medium uppercase tracking-widest text-foreground/70 mb-2">
                   Behind the Scenes
                 </p>
-                <h3 className="text-2xl md:text-3xl font-serif text-white">The Styling Experience</h3>
+                <h3 className="text-2xl md:text-3xl font-serif text-foreground">The Styling Experience</h3>
               </div>
             </motion.div>
           ) : (
@@ -132,12 +132,12 @@ export function VideoSection() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4"
+                        className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/80 to-transparent p-4"
                       >
                         <div className="flex items-center justify-between gap-4">
                           <button
                             onClick={handlePlayPause}
-                            className="text-white hover:text-white/70 transition-colors"
+                            className="text-foreground hover:text-foreground/70 transition-colors"
                           >
                             {isVideoPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
                           </button>
@@ -145,13 +145,13 @@ export function VideoSection() {
                           <div className="flex items-center gap-2">
                             <button
                               onClick={handleMuteToggle}
-                              className="text-white hover:text-white/70 transition-colors"
+                              className="text-foreground hover:text-foreground/70 transition-colors"
                             >
                               {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
                             </button>
                             <button
                               onClick={handleFullscreen}
-                              className="text-white hover:text-white/70 transition-colors"
+                              className="text-foreground hover:text-foreground/70 transition-colors"
                             >
                               <Maximize className="h-5 w-5" />
                             </button>

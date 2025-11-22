@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${bodoni.variable} font-sans bg-black text-white antialiased selection:bg-white/20 selection:text-white`}
+        className={`${inter.variable} ${bodoni.variable} font-sans bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary`}
       >
         <ThemeProvider
           attribute="class"

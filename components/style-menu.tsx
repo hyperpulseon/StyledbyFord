@@ -41,11 +41,11 @@ const services = [
 
 export function StyleMenu() {
   return (
-    <section id="style-menu" className="py-24 md:py-32 bg-black">
+    <section id="style-menu" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6">
         <FadeIn className="mb-20 text-center">
           <h2 className="text-4xl md:text-6xl font-serif mb-4">The Style Menu</h2>
-          <p className="text-gray-400 uppercase tracking-widest text-sm">Curated Services</p>
+          <p className="text-muted-foreground uppercase tracking-widest text-sm">Curated Services</p>
         </FadeIn>
 
         <div className="space-y-24">
@@ -65,10 +65,10 @@ export function StyleMenu() {
 
                 <div className="w-full md:w-1/2 space-y-6">
                   <h3 className="text-3xl md:text-5xl font-serif">{service.title}</h3>
-                  <p className="text-sm uppercase tracking-widest text-gray-400 border-l-2 border-white/20 pl-4">
+                  <p className="text-sm uppercase tracking-widest text-muted-foreground border-l-2 border-border pl-4">
                     {service.subtitle}
                   </p>
-                  <p className="text-gray-300 font-light leading-relaxed text-lg max-w-md">{service.description}</p>
+                  <p className="text-foreground/80 font-light leading-relaxed text-lg max-w-md">{service.description}</p>
                 </div>
               </div>
             </FadeIn>

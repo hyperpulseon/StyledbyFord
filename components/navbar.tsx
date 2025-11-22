@@ -31,7 +31,7 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${isScrolled ? "bg-black/80 backdrop-blur-md border-b border-white/10" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${isScrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : "bg-transparent"
         }`}
     >
       <div className="container mx-auto px-6 py-6 flex items-center justify-between">
@@ -45,10 +45,10 @@ export function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm uppercase tracking-widest text-white/70 hover:text-white transition-colors relative group"
+              className="text-sm uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors relative group"
             >
               {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-foreground transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
           <ModeToggle />
@@ -59,11 +59,11 @@ export function Navbar() {
           <ModeToggle />
           <Sheet>
             <SheetTrigger asChild>
-              <button className="z-50 text-white">
+              <button className="z-50 text-foreground">
                 <Menu />
               </button>
             </SheetTrigger>
-            <SheetContent side="left" className="bg-black border-r border-white/10 w-full max-w-[300px]">
+            <SheetContent side="left" className="bg-background border-r border-border w-full max-w-[300px]">
               <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
               <SheetDescription className="sr-only">
                 Navigation links for mobile devices
@@ -73,7 +73,7 @@ export function Navbar() {
                   <SheetClose key={item.name} asChild>
                     <Link
                       href={item.href}
-                      className="text-2xl font-serif text-white hover:text-gray-300 transition-colors"
+                      className="text-2xl font-serif text-foreground hover:text-muted-foreground transition-colors"
                     >
                       {item.name}
                     </Link>

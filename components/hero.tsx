@@ -32,7 +32,7 @@ export function Hero() {
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl md:leading-[1.2] font-semibold tracking-tighter text-white"
+          className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl md:leading-[1.2] font-semibold tracking-tighter text-foreground"
         >
           StyledbyFORD
         </motion.h1>
@@ -41,7 +41,7 @@ export function Hero() {
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-4 text-2xl md:text-3xl font-serif italic text-white/90"
+          className="mt-4 text-2xl md:text-3xl font-serif italic text-muted-foreground"
         >
           My eye for style
         </motion.h2>
@@ -50,7 +50,7 @@ export function Hero() {
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-6 md:text-lg text-white/80"
+          className="mt-6 md:text-lg text-muted-foreground"
         >
           Style is not about what you wear - it is a statement. With my eye for detail and effortless style instinct, I create looks that are elevated, modern, and most importantly- impossible to overlook. I do not chase trends; I shape presence.
         </motion.p>
@@ -62,7 +62,7 @@ export function Hero() {
           className="mt-10 flex items-center justify-center gap-4"
         >
           <Link href="#process">
-            <button className="px-12 py-4 bg-white text-black hover:bg-gray-200 transition-all duration-300 uppercase tracking-widest text-sm">
+            <button className="px-12 py-4 bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 uppercase tracking-widest text-sm">
               Get Started
             </button>
           </Link>
@@ -73,7 +73,7 @@ export function Hero() {
         whileInView={{ opacity: 1, y: 1, filter: "blur(0px)" }}
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 1, delay: 0.6 }}
-        className="w-5/6 max-w-screen-xl mx-auto aspect-video bg-neutral-900 rounded-xl"
+        className="w-5/6 max-w-screen-xl mx-auto aspect-video bg-muted rounded-xl"
       >
         <VideoSection />
       </motion.div>
