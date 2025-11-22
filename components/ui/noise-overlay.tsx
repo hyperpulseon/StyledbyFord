@@ -2,7 +2,7 @@
 
 export function NoiseOverlay() {
   return (
-    <div className="pointer-events-none fixed inset-0 z-50 opacity-[0.03] mix-blend-overlay">
+    <div className="pointer-events-none fixed inset-0 z-50 opacity-[0.07] mix-blend-overlay">
       <div
         className="absolute inset-0 bg-repeat"
         style={{
