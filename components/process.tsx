@@ -4,7 +4,7 @@ import { ScrollRevealLine } from "./ui/scroll-reveal"
 
 export function Process() {
   return (
-    <section id="process" className="py-24 md:py-32 bg-black relative">
+    <section id="process" className="py-24 md:py-10 bg-black relative">
       <ScrollRevealLine className="absolute top-0 left-0 w-full h-[1px]" />
 
       <div className="container mx-auto px-6">
