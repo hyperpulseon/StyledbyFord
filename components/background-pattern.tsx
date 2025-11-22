@@ -19,7 +19,8 @@ export const BackgroundPattern = () => {
                 cr={1}
                 className={cn(
                     "[mask-image:linear-gradient(to_bottom,white,transparent)]",
-                    "dark:fill-slate-700"
+                    "dark:fill-slate-700",
+                    "opacity-50"
                 )}
             />
             <Particles
