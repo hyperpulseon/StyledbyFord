@@ -6,11 +6,13 @@ import { ArrowUpRight, CirclePlay } from "lucide-react"
 import Link from "next/link"
 import { VideoSection } from "@/components/video-section"
 import { motion } from "framer-motion"
+import { BackgroundPattern } from "@/components/background-pattern"
 
 export function Hero() {
   return (
-    <div className="min-h-screen w-full flex flex-col gap-16 items-center justify-center px-6 py-34">
-      <div className="text-center max-w-3xl">
+    <div className="relative min-h-screen w-full flex flex-col gap-16 items-center justify-center px-6 py-34 overflow-hidden">
+      <BackgroundPattern />
+      <div className="text-center max-w-3xl z-10">
         <motion.div
           initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
