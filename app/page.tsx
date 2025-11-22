@@ -2,7 +2,7 @@ import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
 import { VideoSection } from "@/components/video-section"
 import { Process } from "@/components/process"
-import { StyleMenu } from "@/components/style-menu"
+import { StyleMenuSticky } from "@/components/style-menu-sticky"
 import { Investment } from "@/components/investment"
 import { Socials } from "@/components/socials"
 import { Contact } from "@/components/contact"
@@ -14,7 +14,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Process />
-      <StyleMenu />
+      <StyleMenuSticky />
       <Investment />
       <Socials />
       <Contact />
