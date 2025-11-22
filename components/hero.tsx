@@ -69,8 +69,8 @@ export function Hero() {
         </motion.div>
       </div>
       <motion.div
-        initial={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        initial={{ opacity: 0, y: 0, filter: "blur(10px)" }}
+        whileInView={{ opacity: 1, y: 1, filter: "blur(0px)" }}
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 1, delay: 0.6 }}
         className="w-5/6 max-w-screen-xl mx-auto aspect-video bg-neutral-900 rounded-xl"

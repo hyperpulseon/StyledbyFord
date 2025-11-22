@@ -5,6 +5,7 @@ import "./globals.css"
 import { NoiseOverlay } from "@/components/ui/noise-overlay"
 import { CustomCursor } from "@/components/ui/custom-cursor"
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider"
+import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,15 +29,22 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${bodoni.variable} font-sans bg-black text-white antialiased selection:bg-white/20 selection:text-white`}
       >
-        <SmoothScrollProvider>
-          <NoiseOverlay />
-          <CustomCursor />
-          {children}
-        </SmoothScrollProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          <SmoothScrollProvider>
+            <NoiseOverlay />
+            <CustomCursor />
+            {children}
+          </SmoothScrollProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

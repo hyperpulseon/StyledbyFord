@@ -12,6 +12,7 @@ import {
   SheetTitle,
   SheetDescription,
 } from "@/components/ui/sheet"
+import { ModeToggle } from "@/components/mode-toggle"
 
 const navItems = [
   { name: "The Process", href: "#process" },
@@ -50,10 +51,12 @@ export function Navbar() {
               <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
+          <ModeToggle />
         </nav>
 
         {/* Mobile Menu */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-4">
+          <ModeToggle />
           <Sheet>
             <SheetTrigger asChild>
               <button className="z-50 text-white">
